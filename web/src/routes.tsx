@@ -3,13 +3,21 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 import Landing from './pages/landing';
 import OrphanagesMap from './pages/OrphanagesMap';
+import Orphanages from './pages/Orphanage';
+import CreateOrphanage from './pages/CreateOrphanage';
 
 function Routes(){
     return(
         <BrowserRouter>
-            <Route path="/"exact component={Landing}/>
-            <Route path="/app" component={OrphanagesMap}/>
+            <Switch>
+                <Route path="/"exact component={Landing}/>
+                <Route path="/app" component={OrphanagesMap}/>
+                
+                <Route path="/orphanages/create" component={CreateOrphanage}/>
+                <Route path="/orphanages/:id" component={Orphanages}/>
+            </Switch>
         </BrowserRouter>
+        
     );
 }
 
